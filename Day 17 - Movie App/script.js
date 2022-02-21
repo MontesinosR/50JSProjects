@@ -5,3 +5,13 @@ const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=e4a7fb66bf
 const search = document.getElementById('search')
 const main = document.getElementById('main')
 const form = document.getElementById('form')
+
+//Get initial movies
+getMovies(API_URL)
+
+async function getMovies(url) {
+  const res = await fetch(url)
+  const data = await res.json()
+
+  console.log(data.results)
+}
