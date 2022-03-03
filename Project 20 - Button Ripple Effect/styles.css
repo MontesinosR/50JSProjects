@@ -20,6 +20,7 @@ button {
   background-color: purple;
   color: #fff;
   border: 1px purple solid;
+  border-radius: 5px;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
