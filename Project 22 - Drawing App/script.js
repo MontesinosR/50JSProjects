@@ -1,11 +1,16 @@
-//https://developer.mozilla.org/es/docs/Web/API/Canvas_API
+const canvas = document.getElementById('canvas');
+const increaseBtn = document.getElementById('increase');
+const decreaseBtn = document.getElementById('decrease');
+const sizeEL = document.getElementById('size');
+const colorEl = document.getElementById('color');
+const clearEl = document.getElementById('clear');
 
-const canvas = document.getElementById('canvas')
-const ctx = canvas.getContext('2d')
+const ctx = canvas.getContext('2d');
 
-let size = 20
+let size = 10
 let isPressed = false
-let color = 'black'
+colorEl.value = 'black'
+let color = colorEl.value
 let x
 let y
 
@@ -16,7 +21,7 @@ canvas.addEventListener('mousedown', (e) => {
   y = e.offsetY
 })
 
-canvas.addEventListener('mouseup', (e) => {
+document.addEventListener('mouseup', (e) => {
   isPressed = false
 
   x = undefined
@@ -36,12 +41,9 @@ canvas.addEventListener('mousemove', (e) => {
   }
 })
 
-//https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
-
-
 function drawCircle(x, y) {
-  ctx.beginPath()
-  ctx.arc(x, y, size, 0, Math.PI *2)
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2)
   ctx.fillStyle = color
   ctx.fill()
 }
@@ -54,3 +56,31 @@ function drawLine(x1, y1, x2, y2) {
   ctx.lineWidth = size * 2
   ctx.stroke()
 }
+
+function updateSizeOnScreen() {
+  sizeEL.innerText = size
+}
+
+increaseBtn.addEventListener('click', () => {
+  size += 5
+
+  if (size > 50) {
+    size = 50
+  }
+
+  updateSizeOnScreen()
+})
+
+decreaseBtn.addEventListener('click', () => {
+  size -= 5
+
+  if (size < 5) {
+    size = 5
+  }
+
+  updateSizeOnScreen()
+})
+
+colorEl.addEventListener('change', (e) => color = e.target.value)
+
+clearEl.addEventListener('click', () => ctx.clearRect(0, 0, canvas.width, canvas.height))
