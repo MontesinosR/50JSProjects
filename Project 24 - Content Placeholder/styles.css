@@ -5,6 +5,7 @@
 }
 
 body {
+    background-color: #ecf0f1;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
@@ -15,3 +16,68 @@ body {
     margin: 0;
 }
 
+img {
+  max-width: 100%;
+}
+
+.card {
+  box-shadow:0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 350px;
+}
+
+.card-header {
+  height: 200px;
+}
+
+/* Avoid overlapping of img and card content */
+
+.card-header img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.card-content {
+  background-color: #fff;
+  padding: 30px;
+}
+
+.card-title {
+  height: 20px;
+  margin: 0;
+}
+
+.card-excerpt {
+  color: #777;
+  margin: 10px 0 20px;
+}
+
+.author {
+  display: flex;
+}
+
+/* Without "overflow: hidden" the img pops out of the div and the "border-radius" doesn´t apply */
+
+.profile-img {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+}
+
+/* Play around with this in inspector´s elements to see how it works */
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.author-info small {
+  color: #aaa;
+  margin-top: 5px;
+}
