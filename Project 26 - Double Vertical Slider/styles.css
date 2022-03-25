@@ -49,7 +49,7 @@ body {
   height: 100%;
   position: absolute;
   top: 0;
-  left: 35%;
+  left: 35%; /* It starts where the left slider ends */
   width: 65%;
   transition: transform 0.5s ease-in-out;
 }
@@ -83,11 +83,11 @@ button:focus {
   position: absolute;
   left: 35%;
   top: 50%;
-  z-index: 100;
+  z-index: 100; /* Makes sure the buttons are always on top */
 }
 
 .slider-container .action-buttons .down-button {
-  transform: translateX(-100%);
+  transform: translateX(-100%); /* Moves it to the left, if it was a positive number it would move to the right */
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
