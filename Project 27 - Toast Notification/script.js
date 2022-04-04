@@ -21,6 +21,7 @@ function createNotification(message = null, type = null) {
 
   toasts.appendChild(notif)
 
+  // This avoids messages piling up, removes each notif after 3000 milisecs.
   setTimeout(() => {
     notif.remove()
   }, 3000)
