@@ -4,6 +4,8 @@ const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
+// This try-catch type async functions are necessary here as otherwise if the input in the form does not match any GitHub user, nothing would happen. Async-await function are a must when working with APIs.
+
 async function getUser(username) {
   try {
     const { data } = await axios(APIURL + username)
@@ -47,7 +49,7 @@ function createUserCard(user) {
       <div id="repos"></div>
     </div>
   </div>
-    `
+    ` // The "repos" div will be later filled with the addReposToCard function.
   main.innerHTML = cardHTML
 
 }
@@ -66,7 +68,7 @@ function addReposToCard(repos) {
   const reposEl = document.getElementById('repos')
 
   repos
-    .slice(0, 5)
+    .slice(0, 5) //This prevents the card from getting overflowed with too many repos (as many as the max-height of the card), it will only show the first 5 out of the repos array, which looks better.
     .forEach(repo => {
       const repoEl = document.createElement('a')
       repoEl.classList.add('repo')
